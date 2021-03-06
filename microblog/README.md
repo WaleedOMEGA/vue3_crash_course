@@ -1,4 +1,4 @@
-# composition
+# microblog
 
 ## Project setup
 ```
