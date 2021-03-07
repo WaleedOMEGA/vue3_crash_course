@@ -1,15 +1,24 @@
 import {reactive} from 'vue'
+import { testPosts } from './testPosts';
 
 class Store{
     constructor(){
         this.state=reactive({
-posts:[{
-    id:1,
-    title:'my post',
-    content:'this is a post'
-}
-]
+posts:testPosts,
+currentHashtag:null
         })
+    }
+    setHashtag(tag){
+        this.state.currentHashtag=tag
+    }
+    incrementLike(post){
+        const thePost=this.state.posts.find(x=>
+            x.id === post.id
+        );
+        if(!thePost){
+            return
+        }
+        thePost.likes += 1
     }
 }
 
